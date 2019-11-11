@@ -1,12 +1,15 @@
 <?php
+
 namespace app;
 class View
 {
-    public $content;
+    private $model;
+    private $controller;
 
-    public function __construct($model)
+    public function __construct($model, $controller)
     {
-        $this->content = (array)$model;
+        $this->model = $model;
+        $this->controller = $controller;
     }
 
     public function output()
@@ -14,4 +17,5 @@ class View
         include "page.php";
     }
 }
+
 ?>

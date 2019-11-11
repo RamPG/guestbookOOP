@@ -1,16 +1,20 @@
 <?php
 namespace app;
+
 class Controller
 {
-    public $text;
-    public $name;
-    public $date;
-
-    public function __construct($name, $text)
+    private $model;
+    public $guestbook;
+    public function __construct($model, $guestbook)
     {
-        $this->name = $name;
-        $this->text = $text;
-        $this->date = date("Y-M-D-H:i:s");
+        $this->model = $model;
+        $this->guestbook = $guestbook;
+    }
+    public function putContent()
+    {
+        $data_put = "<p>Имя: " . $this->model->name . " " .  "Отзыв: " . $this->model->text . " " .  "Дата: " . $this->model->date . "</p>| ";
+        file_put_contents("book.txt", $data_put, FILE_APPEND);
     }
 }
+
 ?>

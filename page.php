@@ -18,14 +18,7 @@
     <input type="Submit" value="Отправить">
     <br>
 </form>
-<?php
-foreach ($this->content["data_get"] as $item) {
-    if (mb_strlen($item) > 2) {
-        $text = explode(" ", $item);
-        echo "</p>" . "Имя: ", $text[0], " Отзыв: ", $text[1], " Дата: ", $text[2] . "</p>";
-    }
-}
-?>
+<?php foreach (explode("| ", $this->controller->guestbook) as $item) echo $item; ?>
 </body>
 
 </html>
